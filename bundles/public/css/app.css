@@ -1,0 +1,666 @@
+@font-face {
+    font-family: 'ToyotaDisplay';
+    src: url('font/ToyotaDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+    url('font/ToyotaDisplay-Regular.woff') format('woff'),
+    url('font/ToyotaDisplay-Regular.ttf')  format('truetype'),
+    url('font/ToyotaDisplay-Regular.svg#ToyotaDisplay-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ToyotaDisplay';
+    src: url('font/ToyotaDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+    url('font/ToyotaDisplay-Bold.woff') format('woff'),
+    url('font/ToyotaDisplay-Bold.ttf') format('truetype'),
+    url('font/ToyotaDisplay-Bold.svg#ToyotaDisplay-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ToyotaText';
+    src: url('font/ToyotaText-Regular.eot?#iefix') format('embedded-opentype'),
+    url('font/ToyotaText-Regular.woff') format('woff'),
+    url('font/ToyotaText-Regular.ttf')  format('truetype'),
+    url('font/ToyotaText-Regular.svg#ToyotaText-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ToyotaText';
+    src: url('font/ToyotaText-Italic.eot?#iefix') format('embedded-opentype'),
+    url('font/ToyotaText-Italic.woff') format('woff'),
+    url('font/ToyotaText-Italic.ttf')  format('truetype'),
+    url('font/ToyotaText-Italic.svg#ToyotaText-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'ToyotaText';
+    src: url('font/ToyotaText-Bold.eot?#iefix') format('embedded-opentype'),
+    url('font/ToyotaText-Bold.woff') format('woff'),
+    url('font/ToyotaText-Bold.ttf')  format('truetype'),
+    url('font/ToyotaText-Bold.svg#ToyotaText-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ToyotaText';
+    src: url('font/ToyotaText-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('font/ToyotaText-BoldItalic.woff') format('woff'),
+    url('font/ToyotaText-BoldItalic.ttf')  format('truetype'),
+    url('font/ToyotaText-BoldItalic.svg#ToyotaText-BoldItalic') format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'SignPainter-HouseScript';
+    src: url('font/SignPainter-HouseScript.eot?#iefix') format('embedded-opentype'),
+    url('font/SignPainter-HouseScript.otf')  format('opentype'),
+    url('font/SignPainter-HouseScript.woff') format('woff'),
+    url('font/SignPainter-HouseScript.ttf')  format('truetype'),
+    url('font/SignPainter-HouseScript.svg#SignPainter-HouseScript') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ie {
+    display: none;
+}
+
+.container.content-container {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "ToyotaText", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    background: url('../img/bg-pattern.jpg') top left;
+    color: #54565b;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 30px;
+    font-family: "ToyotaDisplay", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #cf142b;
+    margin-top: 0;
+    /*margin-top: 30px;*/
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 21px;
+    line-height: 26px;
+    font-family: "ToyotaDisplay", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #cf142b;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.visible-xs {
+    display: block;
+}
+
+.hidden-xs {
+    display: none;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+.relative {
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.container0 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+.header {
+    position: relative;
+    margin-right: -20px;
+    margin-left: -20px;
+    min-height: 48px;
+    background-color: #fff;
+}
+
+.menu-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 103px;
+    height: 36px;
+    background-color: #cf142b;
+    font-family: "ToyotaDisplay", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+    z-index: 12;
+}
+
+.menu-button a {
+    display: block;
+    background-color: #cf142b;
+    width: 103px;
+    height: 48px;
+    text-align: center;
+    padding-top: 16px;
+    /*text-transform: uppercase;*/
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo {
+    display: none;
+    position: absolute;
+    right: 15px;
+    z-index: 30;
+    width: 63px;
+}
+
+.logo img {
+    width: auto;
+    max-width: 100% !important;
+    height: auto;
+}
+
+.logo-small {
+    display: none;
+    position: absolute;
+    right: 15px;
+    z-index: 30;
+    width: 63px;
+}
+
+.logo-small-xs {
+    display: block;
+    position: absolute;
+    right: 15px;
+    z-index: 30;
+    width: 63px;
+}
+
+
+.logo-dreamcar {
+    position: absolute;
+    left: 20px;
+    top: 57px;
+    z-index: 29;
+    width: 72px;
+}
+
+.logo-dreamcar img {
+    width: auto;
+    max-width: 100% !important;
+    height: auto;
+}
+
+.mainmenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 48px;
+    width: 100%;
+    background-color: #c0c0c0;
+    z-index: 40;
+}
+
+.mainmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0;
+}
+
+.mainmenu ul li {
+    padding: 0 20px;
+    border: 0;
+    border-bottom: 1px solid #fff;
+}
+
+.mainmenu ul li:last-child {
+    border-bottom: 0;
+}
+
+.mainmenu ul li a {
+    color: #fff;
+    font-size: 18px;
+    line-height: 40px;
+    font-family: "ToyotaDisplay", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.mainmenu ul li.active a, .mainmenu ul li a:hover {
+    color: #cf142b;
+}
+
+.slider-gradient {
+    position: absolute;
+    left: 0;
+    top: 48px;
+    width: 100%;
+    height: 5px;
+    background-image: url('../img/header_gradient.png');
+    background-position: top left;
+    background-repeat: repeat-x;
+    z-index: 20;
+}
+
+.content {
+    padding: 20px 0 0;
+}
+
+.content p {
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.content ul {
+    margin: 0;
+    padding: 0;
+}
+
+.content ul li {
+    list-style: none;
+    padding-left: 25px;
+    position: relative;
+}
+
+.content ul li:before {
+    content: "\2022";
+    color: #cf142b;
+    position: absolute;
+    left: 5px;
+}
+
+.content a {
+    color: #cf142b;
+}
+
+.content a:hover {
+    text-decoration: none;
+}
+
+.content span.red {
+    color: #cf142b;
+}
+
+.social {
+    /*background-image: url('../img/pencil_xs.png');*/
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    margin-top: 100px;
+    margin-bottom: 54px;
+    margin-left: -20px;
+    margin-right: -20px;
+    text-align: center;
+    min-height: 67px;
+    padding-top: 12px;
+}
+
+.social a {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+
+.footer {
+    background-color: #cf142b;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    padding: 30px 0;
+    color: #fff;
+}
+
+.footer a {
+    color: #000;
+}
+
+p.video iframe {
+    background: #f1f1f1;
+}
+
+.society {
+    margin-top: 65px;
+}
+
+.fb-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.vk-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#vk_groups {
+    margin: 0 auto;
+
+}
+
+@media (min-width: 480px) {
+    p.video iframe {
+        height: 240px;
+    }
+}
+
+@media (min-width: 600px) {
+
+    .social {
+        background-image: url('../img/pencil_md.png');
+        min-height: 84px;
+        padding-top: 20px;
+        margin-top: 50px;
+    }
+
+    .social a {
+        margin: 0 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .fb-container {
+        text-align: center;
+        float: left;
+        width: 50%;
+        margin-bottom: 0;
+    }
+
+    .vk-container {
+        text-align: center;
+        float: right;
+        width: 50%;
+        margin-bottom: 0;
+    }
+
+    #vk_groups {
+        margin: 0 auto;
+    }
+
+    .society {
+        margin-bottom: 65px;
+    }
+}
+
+@media (min-width: 900px) {
+    html,
+    body {
+        margin:0;
+        padding:0;
+        height:100%;
+    }
+    #wrapper-toyota {
+        min-height:100%;
+        position:relative;
+    }
+    #header-toyota {
+        /*background:#ededed;*/
+    }
+    #content-toyota {
+        padding-bottom:160px;
+        position: relative;
+        overflow-y: hidden;
+    }
+    #footer-toyota {
+        /*background:#ffab62;*/
+        width:100%;
+        height:160px;
+        position:absolute;
+        bottom:0;
+        left:0;
+    }
+
+    .slider-gradient {
+        position: fixed;
+    }
+
+    .container.content-container {
+        -moz-box-shadow: 0px 3px 40px rgb(100,100,100);
+        -webkit-box-shadow: 0px 3px 40px rgb(100,100,100);
+        box-shadow: 0px 3px 40px rgb(100,100,100);
+        background-color: #fff;
+    }
+
+    body {
+        font-size: 17px;
+        letter-spacing: -0.07px;
+        line-height: 20px;
+    }
+
+    h1 {
+        /*font-size: 21px;*/
+        /*line-height: 23px;*/
+        font-size: 36px;
+        line-height: 38px;
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 21px;
+        line-height: 23px;
+    }
+
+    .hidden-md {
+        display: none;
+    }
+
+    .visible-md {
+        display: block;
+    }
+
+    .bg-wrapper {
+        background-image: url('../img/bg1.jpg'), url('../img/bg2.jpg');
+        background-position: top left, top right;
+        background-repeat: repeat-y;
+    }
+
+    .container {
+        margin: 0 auto;
+        max-width: 900px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    .header-container {
+        background-color: #fff;
+    }
+
+    .header {
+        min-height: 48px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .logo {
+        display: block;
+        top: 0;
+        right: 17px;
+        width: 79px;
+        z-index: 41;
+    }
+
+    .logo-small {
+        display: none;
+    }
+
+    .logo-small-xs {
+        display: none;
+    }
+
+    .logo-dreamcar {
+        left: -20px;
+        top: 72px;
+        width: 130px;
+    }
+
+    .mainmenu {
+        position: fixed;
+        display: block;
+        top: 0;
+        background-color: #fff;
+    }
+
+    .mainmenu ul {
+        list-style: none;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        height: 48px;
+    }
+
+    .mainmenu ul li {
+        float: left;
+        padding: 12px 10px 0;
+        /*background-color: #bbb;*/
+        margin: 0 3px;
+        height: 48px;
+        border-bottom: 0;
+        border-top: 3px solid transparent;
+    }
+
+    .mainmenu ul li.logo-small {
+        position: absolute;
+        top: -3px;
+        right: 22px;
+        display: block;
+        height: 48px;
+        width: 70px;
+        overflow: hidden;
+        padding-top: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .mainmenu ul li.logo-small img {
+        max-width: 100% !important;
+    }
+
+    .mainmenu ul li.active {
+        /*background-color: #cf142b;*/
+        border-top: 3px solid #cf142b;
+    }
+
+    .mainmenu ul li:first-child {
+        margin-left: 0;
+    }
+
+    .mainmenu ul li:last-child {
+        margin-right: 0;
+    }
+
+    .mainmenu ul li a {
+        font-size: 17px;
+        line-height: 17px;
+        color: #000;
+        text-decoration: none;
+    }
+
+    .mainmenu ul li.active a {
+        /*color: #fff;*/
+        color: #cf142b;
+    }
+
+    .content {
+        background-color: #fff;
+        /*background: url('../img/bg-pattern.jpg') top left;*/
+        padding: 40px 70px 70px;
+    }
+
+    .social {
+        margin-top: 64px;
+        margin-bottom: 0;
+    }
+
+    .footer {
+        padding: 30px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .footer .container {
+        background-color: #cf142b;
+    }
+
+    .society {
+        margin-bottom: 0;
+    }
+
+
+
+}
+
+/*@media (min-width: 1200px) {*/
+    /*.container {*/
+        /*margin: 0 auto;*/
+        /*max-width: 1200px;*/
+        /*padding-left: 0;*/
+        /*padding-right: 0;*/
+    /*}*/
+/*}*/
+

@@ -1,0 +1,20 @@
+<h1>{{ news.name }}</h1>
+<div class="event-source">{{ news.source }} {{ news.date|format_date('d.m.Y') }}</div>
+<div class="event-content">{{ include(template_from_string(news.content)) }}</div>
+
+<div class="gallery">
+    {% for item in news.gallery_value %}
+    <div class="photo"><img src="{{ item.extra.main.path }}"></div>
+    {% endfor %}
+</div>
+
+<p><a href="{{ path('public_page', {node: curnode.name}) }}"><strong>Назад к календарю событий</strong></a></p>
+
+<div class="event-links clearfix">
+    {% if prev %}
+        <a class="prev-event" href="{{ path('event_detail', {id: prev.id}) }}"><span class="event-prev-text-xs">Пред.</span><span class="event-prev-text-md">Предыдущее</span> событие</a>
+    {% endif %}
+    {% if next %}
+        <a class="next-event" href="{{ path('event_detail', {id: next.id}) }}"><span class="event-next-text-xs">След.</span><span class="event-next-text-md">Следующее</span> событие</a>
+    {% endif %}
+</div>

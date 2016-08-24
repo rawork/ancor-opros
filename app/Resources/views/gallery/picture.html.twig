@@ -1,0 +1,20 @@
+
+<div class="modal-picture modal-picture-page">
+    <img src="{{ picture.picture_value.extra.big.path }}">
+    <div class="picture-vote"><div class="likes">{{ picture.likes }}</div><button data-id="{{ picture.id }}" {% if picture.vote  %}class="inactive"{% endif %}></button></div>
+    <div class="title">{{ picture.name  }}</div>
+    <div class="person">{{ picture.person }} ({{ picture.city }}),  {{ picture.age }}</div>
+    <div class="idea"><span class="red">Идея</span>{{ picture.idea }}</div>
+</div>
+<div class="share">
+    <a class="btn-share btn-share-vk" data-source="popupSlick"><img src="/bundles/public/img/btn_like_vk.png"></a>
+    <a class="btn-share btn-share-fb" data-source="popupSlick"><img src="/bundles/public/img/btn_like_fb.png"></a>
+</div>
+<a href="/pictures" class="btn-single-link">Смотреть все работы</a>
+<div class="noload" data-load="0"></div>
+<div class="modal" id="modal-auth">
+    <div class="modal-dialog modal-dialog-auth">
+        <a href="#" class="modal-close"></a>
+        <div class="modal-content"></div>
+    </div>
+</div>

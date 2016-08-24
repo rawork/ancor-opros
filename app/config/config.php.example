@@ -1,0 +1,38 @@
+<?php
+
+define('PRJ_ENV', 'dev'); // prod, dev
+define('PRJ_REF', '');
+define('PRJ_DIR', $_SERVER['DOCUMENT_ROOT'].PRJ_REF);
+define('PRJ_LOGO', '/bundles/public/img/logo.png');
+
+define('RES_REF', PRJ_REF.'/files');
+define('RES_DIR', PRJ_DIR.'/files');
+define('UPLOAD_REF', PRJ_REF.'/upload');
+define('UPLOAD_DIR', PRJ_DIR.'/upload');
+define('BACKUP_REF', PRJ_REF.'/app/backup');
+define('BACKUP_DIR', PRJ_DIR.'/app/backup');
+define('PCRE_RES_REF', str_replace('/', '\/', RES_REF));
+define('THEME_REF', PRJ_REF.'/bundles');
+define('PRJ_LOCALE', 'ru');
+
+define('AUTH_TTL', 86400000);
+
+define('TWIG_PATH', '/app/Resources/views');
+define('TWIG_CACHE_PATH', '/app/cache/twig');
+
+define('VK_APP_ID', '5283052');
+define('VK_APP_SHARED_SECRET', 'c0DaYtGofQykbVvPo3KS');
+define('VK_APP_REDIRECT_URI', 'http://toyota.local/pictures/verify');
+define('VK_OAUTH_URL', 'http://oauth.vk.com/authorize');
+
+define('FB_APP_ID', '976103942484311');
+define('FB_APP_SHARED_SECRET', 'd175409174d570f83e90bb264026979d');
+define('FB_APP_REDIRECT_URI', 'http://toyota.local/pictures/verify');
+define('FB_OAUTH_URL', 'javascript: checkLoginState();');
+
+define('CACHE_DRIVER', 'file'); // file/memcached/redis
+define('CACHE_HOST', 'localhost');
+define('CACHE_PORT', 0);   // 0/11211/6379
+
+require_once('database.php');
+require_once('parameters.php');

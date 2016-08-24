@@ -1,0 +1,72 @@
+@-o-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+@-moz-keyframes spin-back {
+    from { -moz-transform: rotate(360deg); }
+    to { -moz-transform: rotate(0deg); }
+}
+@-moz-keyframes spin-back {
+    from { -moz-transform: rotate(360deg); }
+    to { -moz-transform: rotate(0deg); }
+}
+@-webkit-keyframes spin-back {
+    from { -webkit-transform: rotate(360deg); }
+    to { -webkit-transform: rotate(0deg); }
+}
+@keyframes spin-back {
+    from {transform:rotate(360deg);}
+    to {transform:rotate(0deg);}
+}
+
+.preloader {
+    position: relative;
+    padding: 30px;
+    margin: 60px auto;
+    width: 300px;
+    height: 200px;
+    color: #cf142b;
+    font-size: 20px;
+    text-align: center;
+}
+.gear-b {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -27px 0 0 -28px;
+    width: 57px;
+    height: 54px;
+    background: url(http://creativefarm.ru/tdc/gear-b.png) ;
+    background-size:57px 54px;
+    -webkit-animation: spin-back 3s infinite linear; /* Safari 4+ */
+    -moz-animation: spin-back 3s infinite linear; /* Fx 5+ */
+    -o-animation: spin-back 3s infinite linear;
+    animation: spin-back 3s infinite linear;
+}
+.gear-y {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 0 0 30px;
+    width: 30px;
+    height: 29px;
+    background: url(http://creativefarm.ru/tdc/gear-y.png) ;
+    background-size:30px 29px;
+    -webkit-animation: spin-back 3s infinite linear; /* Safari 4+ */
+    -moz-animation: spin-back 3s infinite linear; /* Fx 5+ */
+    -o-animation: spin-back 3s infinite linear;
+    animation: spin-back 3s infinite linear;
+}

@@ -1,0 +1,16 @@
+<h4>Авторизуйтесь для того, чтобы проголосовать</h4>
+
+<div class="social-title">Вход через социальные сети:</div>
+
+<div class="social-selector">
+    <a class="vk" href="{{ vk }}"></a>
+    <a class="fb" href="{{ fb }}"></a>
+</div>
+
+<form id="form-login" action="/pictures/login" method="post">
+    <div class="message message-error"></div>
+    <input type="text" name="login" placeholder="E-mail">
+    <input type="password" name="password" placeholder="Пароль">
+    <div class="form-controls"><a href="/pictures/forgot">Сбросить пароль</a></div>
+    <div class="form-controls"><button>Войти</button><a href="/pictures/register">Зарегистрироваться</a></div>
+</form>

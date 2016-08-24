@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toyota - OAuth Verify</title>
+    <link type="text/css" rel="stylesheet" href="/bundles/public/css/app.css?2015113002" media="screen">
+</head>
+<body>
+    {{ maincontent }}
+    <script type="text/javascript">
+        {% if profile %}
+        window.opener.openProfileForm('{{ picture }}');
+        window.close();
+        {% elseif close %}
+        window.opener.closeAuthForm('{{ picture }}');
+        window.close();
+        {% endif %}
+    </script>
+</body>
+</html>

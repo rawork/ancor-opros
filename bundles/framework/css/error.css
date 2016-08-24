@@ -1,0 +1,41 @@
+html * {
+
+}
+
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+	font-weight: 300;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight:normal;
+	padding:0;
+    padding-bottom: 20px;
+	margin:0;
+}
+
+.error {
+	width: 550px;
+	position:absolute;      
+    top: 50%;
+    left: 50%;
+	margin-top:-150px;
+    margin-left:-275px;
+	text-align: center;
+}
+
+.error img {
+	height: auto;
+}
+
+.error-text {
+	font-size: 20px;
+	line-height: 28px;
+}
+
+a{
+    color: #999;
+}

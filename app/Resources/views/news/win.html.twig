@@ -1,0 +1,64 @@
+<div class="picture-category-help"><span>Выберите возрастную категорию</span></div>
+{% if ages|length > 1 %}
+    <ul class="tabs">
+        {% for age in ages %}
+            <li{% if 1 == age.id %} class="active"{% endif %} data-id="#tab{{ age.id }}">{{ age.name }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<div class="tab-text-container">
+    {% for age in ages %}
+    <div id="tab{{ age.id }}"{% if 1 == age.id %} class="active"{% endif %}>
+        <div class="display-xs">
+            <div class="picture-help">Листайте в сторону, чтобы посмотреть работы победителей.</div>
+            <div class="pictures">
+                {% for picture in age.pictures %}
+                <div class="picture">
+                    <div class="nomination"><div><span>{{ picture.nomination }}</span></div></div>
+                    <div class="img">
+                        <img data-lazy="{{ picture.picture_value.extra.big.path }}">
+                    </div>
+                    <div class="person">{{ picture.person }}, {{ picture.age }}</div>
+                    <div class="city">{{ picture.city }}</div>
+                    <div class="name">{{ picture.name }}</div>
+                    <div class="idea"><span class="red">Идея</span>{{ picture.idea }}</div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="display-md">
+            {% set pos = 0 %}
+            {% for picture in age.pictures %}
+            {% if pos == 0 or pos == 3  %}
+                <div class="nomination"><div><span>{{ picture.nomination }}</span></div></div>
+                <ul class="event-pictures clearfix">
+            {% elseif pos == 6 %}
+                <div class="nomination"><div><span>{{ picture.nomination }}</span></div></div>
+                <ul class="event-pictures pictures4 clearfix">
+            {% elseif pos == 10 %}
+                <div class="nomination"><div><span>Номинации</span></div></div>
+                <ul class="event-pictures pictures4 clearfix">
+            {% endif %}
+                    <li>
+                        <div class="picture">
+                            <div class="img">
+                                <img src="{{ picture.picture_value.extra.main.path }}">
+                            </div>
+                            {% if pos > 9 %}<div class="nomination"><div><span>{{ picture.nomination }}</span></div></div>{% endif %}
+                            <div class="person">{{ picture.person }}, {{ picture.age }}</div>
+                            <div class="city">{{ picture.city }}</div>
+                            <div class="name">{{ picture.name }}</div>
+                            {#<div class="idea"><span class="red">Идея</span>{{ picture.idea }}</div>#}
+                        </div>
+                    </li>
+            {% set pos = pos + 1 %}
+            {% if pos == 3 or pos == 6 or pos == 10 or pos == 14  %}
+                </ul>
+            {% endif %}
+
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

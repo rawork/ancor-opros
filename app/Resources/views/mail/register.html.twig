@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>Конкурс Toyota Автомобиль мечты - Регистрация</title>
+</head>
+<body style="margin:0;padding: 0;">
+
+<div style="margin:0;padding:0;font-family:Arial,sans-serif;font-size:17px;line-height:22px;text-align:left;background-color:#ffffff;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+            <td align="center" style="border-collapse:collapse;margin:0;padding:0;height:100% !important;width:100% !important;">
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width:905px;max-width:905px;">
+                    <tbody><tr>
+                        <td align="center" valign="top" style="border-collapse:collapse;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                <tr>
+                                    <td height="0" style="border-collapse:collapse;background-color: #ffffff;"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"  background-color=" #ffffff">
+                                <tbody>
+                                <tr>
+                                    <td style="text-align:center;border-collapse:collapse;background-color: #ffffff">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" >
+                                        <tbody>
+                                        <tr>
+                                            <td height="414" style="text-align:center;border-collapse:collapse;">
+                                                <img style="display:block" src="{{ server_link }}/bundles/public/img/mail/header.jpg" alt="" border="0" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 40px 195px;text-align:center;border-collapse:collapse;background-color: #f6f6f6;" background="{{ server_link }}/bundles/public/img/mail/bg_paints.jpg">
+                                                <h1 style="font-size: 24px;line-height: 24px;margin:0;margin-bottom: 30px;">Здравствуйте!</h1>
+
+                                                <p>Благодарим Вас за регистрацию на сайте <a href="http://dreamcar.toyota.ru">конкурса детского рисунка Toyota  «Автомобиль мечты»</a>. Теперь Вы можете принять участие в голосовании за приз зрительских симпатий.</p>
+                                                <p>Посмотрите, какие удивительные автомобили будущего изобрели участники конкурса в этом году! Выберите самые интересные по Вашему мнению работы и отдайте им свой голос. Помните, что Вы можете проголосовать за несколько работ, но только один раз.</p>
+
+                                                <p>Автор рисунка, который наберет больше всего голосов, получит специальный приз зрительских симпатий!</p>
+
+                                                <p>С уважением, конкурс детского рисунка «Автомобиль мечты».</p>
+
+                                                {% if code %}
+                                                <p>Проверочный код для полной регистрации: <strong style="color:#ff0000;">{{ code }}</strong></p>
+                                                {% endif %}
+
+                                                <p><a target="_blank" href="http://dreamcar.toyota.ru/files/Rules_10.pdf">Правила проведения конкурса детского рисунка Toyota «Автомобиль мечты»</a></p>
+                                                <p>Подписывайтесь на нас в социальных сетях:</p>
+
+                                                <p>
+                                                    <a target="_blank" href="https://vk.com/toyota_dream_car"><img src="{{ server_link }}/bundles/public/img/modal_vk.png"></a>
+                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a target="_blank" href="https://www.facebook.com/Toyota-%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C-%D0%BC%D0%B5%D1%87%D1%82%D1%8B-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81-%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BA%D0%B0-565681673579860/"><img src="{{ server_link }}/bundles/public/img/modal_fb.png"></a>
+                                                </p>
+
+                                                <p style="font-size:14px;">Пожалуйста, не отвечайте на это письмо - оно было отправлено автоматически. Вы всегда сможете связаться с нами через официальный сайт или аккаунты в соцсетях. Если Вы больше не хотите получать письма от компании Toyota - <a target="_blank" href="http://mandrillapp.com/track/click/30764986/drive.toyota.ru?p=eyJzIjoidDFQWFlLLS02NWJYUkgybHlBelhIWm93V0lBIiwidiI6MSwicCI6IntcInVcIjozMDc2NDk4NixcInZcIjoxLFwidXJsXCI6XCJodHRwOlxcXC9cXFwvZHJpdmUudG95b3RhLnJ1XFxcL21haWxcXFwvP2FjdGlvbj1idG4wJmlkPTY3Jm1haWw9MTImaWQyPTY3XCIsXCJpZFwiOlwiMTY5OTcxN2M3MWM5NGRmMjkxNjBjOTY0NDQzOWQzMjhcIixcInVybF9pZHNcIjpbXCI5NjU3N2Y5ZTA2Y2M3OTdmMTc3ZWM4OGIzM2IzOWQxMmViODM0MDcyXCJdfSJ9">нажмите сюда</a>.</p>
+                                        	{% if not isWeb %}<p style="font-size:14px;"><small><a href="{{ server_link }}/pictures/regmail">Веб-версия письма</a></small></p>{% endif %}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td height="20" style="border-collapse:collapse;background-color: #ffffff;"></td>
+                                        </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

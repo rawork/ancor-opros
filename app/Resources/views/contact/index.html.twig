@@ -1,0 +1,30 @@
+
+<div class="map">
+    <div class="map-bg"></div>
+    <div class="search-form">
+        <select name="city" id="map-city" data-url="{{ path('contact_cities_data') }}">
+            <option value="">Начните вводить название города</option>
+            {% for city in cities %}
+            <option value="{{ city.id }}">{{ city.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="map-link-helper">Нажмите на город на карте для просмотра контактной информации.</div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <a href="#" class="modal-close"></a>
+            <div class="pop-up">
+                <div class="bdr-t"></div>
+                <div class="nano">
+                    <div id="modal-dealers" class="nano-content">
+                        <ul class="dealer clearfix"></ul>
+                    </div>
+                </div>
+                <div class="bdr-b"></div>
+            </div>
+        </div>
+    </div>
+    <div class="map-canvas"></div>
+</div>
+
+<ul id="dealer" class="dealer clearfix" data-url="{{ path('contact_dealers_data') }}"></ul>

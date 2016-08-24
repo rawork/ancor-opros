@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="{{ theme_ref }}/framework/css/error.css" type="text/css">
+	<link href="/favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>{{ status_code }}</title>
+</head>
+<body>
+    <div class="error">
+		<div><a href="/"><img src="{{ prj_ref }}{{ project_logo }}"></a></div>
+		<br>
+		<h1>{{ status_code }}</h1>
+		<div class="error-text">{{ status_text }}<br><a href="{{ mainpage_link }}">Перейти на главную страницу</a></div>
+	</div>
+</body>
+</html>

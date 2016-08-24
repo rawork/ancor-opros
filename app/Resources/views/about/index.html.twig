@@ -1,0 +1,553 @@
+<div class="attention">
+    <div class="quote-pop">
+        <div class="quote-top"></div>
+        <div class="quote-content">
+            {{ render('Fuga:Public:Common:block', {name: 'vrezka'}) }}
+        </div>
+        <div class="quote-bottom"></div>
+    </div>
+</div>
+
+{% if tabs|length > 1 or 1==1 %}
+<ul class="tabs">
+    {% for tab in tabs %}
+    <li{% if 1 == tab.id %} class="active"{% endif %} data-id="#tab{{ tab.id }}">{{ tab.name }}</li>
+    {% endfor %}
+    <li data-id="#tab999">Подарки</li>
+    <li data-id="#tab998">Жюри</li>
+</ul>
+{% endif %}
+
+{#<div class="tab-text-container">#}
+    {#<div id="tab1" class="active">#}
+        {#<h2 class="about">Кто может участвовать в конкурсе?</h2>#}
+        {#<p>Любой ребенок, проживающий на&nbsp;территории России в&nbsp;возрасте до&nbsp;15 лет включительно. Справедливое жюри оценит работы участников в&nbsp;трех возрастных категориях:</p>#}
+        {#<ul class="category">#}
+            {#<li>1 категория&nbsp;&mdash; дети до&nbsp;7 лет включительно</li>#}
+            {#<li>2 категория&nbsp;&mdash; дети от&nbsp;8 до&nbsp;11 лет</li>#}
+            {#<li>3 категория&nbsp;&mdash; дети от&nbsp;12 до&nbsp;15 лет включительно</li>#}
+        {#</ul>#}
+        {#<h2>Что нужно сделать и как должна выглядеть работа?</h2>#}
+        {#<p>Чтобы стать участником конкурса, ваш ребенок должен нарисовать и&nbsp;раскрасить свой автомобиль будущего. Пусть в&nbsp;нем воплотятся все самые смелые мечты и&nbsp;яркие фантазии вашего юного изобретателя!</p>#}
+
+        {#<div class="clearfix">#}
+            {#<img id="sizes-rules" src="/bundles/public/img/formats.png">#}
+            {#&#123;&#35;<div class="sizes"></div>&#35;&#125;#}
+            {#<p><strong>Проверьте, отвечает&nbsp;ли рисунок требованиям конкурса:</strong></p>#}
+            {#<ul class="rules">#}
+                {#<li>У&nbsp;автомобиля будущего есть подходящее название и&nbsp;описание его уникальных свойств и&nbsp;характеристик</li>#}
+                {#<li>Размер бумаги соответствует формату А3 (предпочтительно) или А4</li>#}
+            {#</ul>#}
+            {#<img id="sizes-rules-xs" src="/bundles/public/img/formats.png">#}
+        {#</div>#}
+
+        {#<ul>#}
+            {#<li class="margin-bottom">Убедитесь, что рисунок вашего ребенка (автомобиль и&nbsp;фон) яркий, красочный и&nbsp;разноцветный, а&nbsp;не&nbsp;<nobr>чёрно-белый</nobr></li>#}
+        {#</ul>#}
+        {#<div id="pictures-rules-xs" class="text-center">#}
+            {#<img id="rules-picture1" src="/bundles/public/img/rules_picture_good.jpg">#}
+            {#<img id="rules-picture2" src="/bundles/public/img/rules_picture_bad.jpg">#}
+        {#</div>#}
+        {#<div id="pictures-rules" class="text-center">#}
+            {#<img id="rules-picture1" src="/bundles/public/img/rules_picture_good.jpg">#}
+            {#<img id="rules-picture2" src="/bundles/public/img/rules_picture_bad.jpg">#}
+        {#</div>#}
+        {#<ul>#}
+            {#<li>Мы&nbsp;в&nbsp;Toyota считаем, что самые интересные рисунки нарисованы от&nbsp;руки. Пожалуйста, не&nbsp;используйте компьютерную графику, коллажи или аппликации. Пусть ваш ребенок творит!</li>#}
+        {#</ul>#}
+        {#<div id="tools-rules-xs" class="text-center">#}
+            {#<img id="rules-tools1" src="/bundles/public/img/rules_tools_good.png">#}
+            {#<img id="rules-tools2" src="/bundles/public/img/rules_tools_bad.png">#}
+        {#</div>#}
+        {#<div id="tools-rules" class="text-center">#}
+            {#<img id="rules-tools1" src="/bundles/public/img/rules_tools_good.png">#}
+            {#<img id="rules-tools2" src="/bundles/public/img/rules_tools_bad.png">#}
+        {#</div>#}
+        {#<p>Рисунок готов? Теперь скачайте <a href="/bundles/public/files/anketa2015.pdf">анкету</a> и&nbsp;расскажите, почему этот автомобиль лучший и&nbsp;как он&nbsp;работает. Дорогие родители и&nbsp;опекуны, обязательно подпишите анкету вашего ребенка!<br>Как правильно заполнить анкету, можете посмотреть <a href="/bundles/public/files/example.pdf">здесь</a>.</p>#}
+        {#<p>Ознакомится с&nbsp;полными правилами участия можно <a href="/bundles/public/files/rules2015.pdf">здесь</a>.</p>#}
+        {#<h2>Как отправить работу на конкурс?</h2>#}
+        {#<p>Работы и&nbsp;заполненные анкеты можно подать на&nbsp;конкурс в&nbsp;одном из&nbsp;дилерских центров Toyota вашего города&nbsp;&mdash; найдите самый удобный для вас <a href="/contacts">здесь</a>.</p>#}
+
+        {#<div class="clearfix">#}
+            {#<img id="envelope-rules" src="/bundles/public/img/envelope_rules.png">#}
+            {#<p>Если в вашем городе нет пункта приёма работ, отправьте вашу заявку почтой по адресу: 105062, г. Москва, ул. Макаренко д.21/2 стр.2, офис компании Avantgarde, с пометкой – Toyota, конкурс детского рисунка «Автомобиль мечты».</p>#}
+            {#<p>Работы принимаются  в период с 1 декабря 2015 г. по 7 февраля 2016 г.</p>#}
+            {#<p><strong>Если отправляете нам работы по почте, сделайте это заранее, чтобы успеть к указанному сроку. </strong></p>#}
+        {#</div>#}
+
+        {#<div class="clearfix">#}
+            {#<img id="girl-rules" class="pull-right" src="/bundles/public/img/boy-with-pencil-2_2.png">#}
+            {#<h2>Что делать, если нет идей?</h2>#}
+            {#<img id="girl-rules-xs" src="/bundles/public/img/boy-with-pencil-2_2.png">#}
+            {#<p>Задайте вашему ребенку вопросы. Как выглядит автомобиль его мечты? Как он&nbsp;работает? Как он&nbsp;может сделать мир лучше, чище и&nbsp;ярче для будущих поколений? Это те&nbsp;вопросы, которые задают себе дизайнеры Toyota, создавая новые автомобили.</p>#}
+            {#<p>Посмотрите, что сделали конкурсанты прошлого года. Их&nbsp;работы размещены в&nbsp;разделе <a href="/pictures">Галерея</a>. Может быть, там ваш юный художник найдет вдохновение. Удачи!</p>#}
+        {#</div>#}
+    {#</div>#}
+    {#<div id="tab2">test2</div>#}
+    {#<div id="tab3">test3</div>#}
+{#</div>#}
+
+<div class="tab-text-container">
+    {% for tab in tabs %}
+    <div id="tab{{ tab.id }}"{% if 1 == tab.id %} class="active"{% endif %}>
+        {{ tab.content }}
+    </div>
+    {% endfor %}
+    <div id="tab999">
+        <h2>Что можно выиграть?</h2>
+        <p>Участие в конкурсе детского рисунка Toyota «Автомобиль мечты» - это не только яркие  впечатления, но и возможность выиграть ценные призы, подготовленные специально для этого детского праздника. Творческие подарки, стильные наряды и аксессуары - все эти необычные призы будут вручены победителям на церемонии награждения, которая пройдет в Москве, в офисе Toyota.</p>
+        <p> Подарки получат следующие категории участников:</p>
+        <div class="tabs-prizes-text">Выберите возрастную категорию</div>
+        <ul class="tabs tabs-prizes">
+            <li data-id="#prize-tab1" data-num="0" class="active">0-7 лет</li>
+            <li data-id="#prize-tab2" data-num="1">8-11 лет</li>
+            <li data-id="#prize-tab3" data-num="2">12-15 лет</li>
+        </ul>
+
+        <div class="prizes-help">Листайте страницу в сторону, чтобы посмотреть подарки</div>
+
+        <div class="prizes-container">
+            <div class="pop-up">
+                <div class="bdr-t"></div>
+                <div class="tab-text-container ">
+                    <div id="prize-tab1" class="active">
+                        <div class="prizes prizes-desktop">
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-3">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_girl_place1.png">
+                                    </li>
+                                    <li class="foto2-3">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_girl_place2.png">
+                                    </li>
+                                    <li class="foto3-3">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_girl_place3.png">
+                                    </li>
+                                </ul>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-3">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_boy_place1.png">
+                                    </li>
+                                    <li class="foto2-3">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_boy_place2.png">
+                                    </li>
+                                    <li class="foto3-3">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_boy_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-2">
+                                        <h3>Девочки</h3>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide2_girl.png">
+                                    </li>
+                                    <li class="foto1-2">
+                                        <h3>Мальчики</h3>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide2_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-2">
+                                        <h3>Девочки</h3>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide3_girl.png">
+                                    </li>
+                                    <li class="foto1-2">
+                                        <h3>Мальчики</h3>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide3_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="prizes prizes-mobile">
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_girl_place1.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_girl_place2.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_girl_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_boy_place1.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_boy_place2.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети до 7 лет включительно</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide1_boy_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide2_girl.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide2_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide3_girl.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat0-7_slide3_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="prize-tab2">
+                        <div class="prizes prizes-desktop">
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-3">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_girl_place1.png">
+                                    </li>
+                                    <li class="foto2-3">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_girl_place2.png">
+                                    </li>
+                                    <li class="foto3-3">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_girl_place3.png">
+                                    </li>
+                                </ul>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-3">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_boy_place1.png">
+                                    </li>
+                                    <li class="foto2-3">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_boy_place2.png">
+                                    </li>
+                                    <li class="foto3-3">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_boy_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-2">
+                                        <h3>Девочки</h3>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide2_girl.png">
+                                    </li>
+                                    <li class="foto1-2">
+                                        <h3>Мальчики</h3>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide2_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-2">
+                                        <h3>Девочки</h3>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide2_girl.png">
+                                    </li>
+                                    <li class="foto1-2">
+                                        <h3>Мальчики</h3>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide2_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="prizes prizes-mobile">
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_girl_place1.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_girl_place2.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_girl_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_boy_place1.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_boy_place2.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 8 до 11 лет</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide1_boy_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide2_girl.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide2_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <h3>Девочки</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide3_girl.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <h3>Мальчики</h3>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat8-11_slide3_boy.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="prize-tab3">
+                        <div class="prizes prizes-desktop">
+                            <div class="prize">
+                                <h2>3 категория — дети от 12 до 15 лет включительно</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-3">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide1_place1.png">
+                                    </li>
+                                    <li class="foto2-3">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide1_place2.png">
+                                    </li>
+                                    <li class="foto3-3">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide1_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide2_3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide3_3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="prizes prizes-mobile">
+                            <div class="prize">
+                                <h2>1 категория — дети от 12 до 15 лет</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>1 место</div>
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide1_place1.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 12 до 15 лет</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>2 место</div>
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide1_place2.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>1 категория — дети от 12 до 15 лет</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <div>3 место</div>
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide1_place3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категории: «Защита окружающей среды», «Гений инженерной мысли», «Приз зрительских симпатий»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide2_3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="prize">
+                                <h2>Категория: «Президентский приз»</h2>
+                                <ul class="fotos clearfix">
+                                    <li class="foto1-1">
+                                        <img src="/bundles/public/img/prizes/cat12-15_slide3_3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="bdr-b"></div>
+            </div>
+        </div>
+        <p><small><i>Примечание: дизайн предметов и одежды детской коллекции может отличаться от представленных на сайте.</i></small></p>
+
+        {#<div class="airplane">Возможно, именно ваша работа займет первое место в национальном этапе конкурса и ваша семья сможет отправиться в Японию на церемонию награждения!</div>#}
+
+        <div class="lego">
+            <div class="quote-pop">
+                <div class="quote-top"></div>
+                <div class="quote-content">
+                    <h6>Партнеры</h6>
+                    <p class="lego kidburg"><img src="/bundles/public/img/kidburg200.png" width="100">«КидБург» – маленькая модель реального мира, в котором дети пробуют себя в разных профессиях (более 60), зарабатывают свои первые деньги «профи», строят карьеру и находят друзей. Здесь все по-настоящему: юные горожане торопятся на работу, полицейские следят за порядком, автомеханики проверяют машину, а журналисты ищут сенсации для очередного выпуска газеты.</p>
+                    <p>&nbsp;</p>
+                    <p class="lego"><img src="/bundles/public/img/lego.png">Юных победителей-изобретателей также ждут подарки от партнеров конкурса – компании LEGO®! Они помогут детям еще сильнее развить свою фантазию и получить навыки конструирования - словом, стать еще ближе ко дню, когда на дорогах будут ездить спроектированные ими автомобили мечты!</p>
+                    <p>&nbsp;</p>
+                </div>
+                <div class="quote-bottom"></div>
+            </div>
+        </div>
+
+        <h2>Но на этом подарки не заканчиваются!</h2>
+
+        <p>Победители российского этапа конкурса детского рисунка Toyota «Автомобиль мечты» могут выиграть самый главный приз – фантастическую поездку в Японию для всей семьи. Здесь они познакомятся с художниками из других стран, получат награду из рук президента Toyota Motor Corporation и громко заявят о своем таланте на весь мир.</p>
+        <p>В прошлом году победителем стал Марк Старенков из Ростова-на-Дону. Может быть, в этом году в страну Восходящего Солнца отправится ваша семья?</p>
+        <p>Участвуйте и побеждайте! Удачи!</p>
+    </div>
+    <div id="tab998">
+        {{ render('Fuga:Public:About:juri') }}
+    </div>
+</div>

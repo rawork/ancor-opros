@@ -1,0 +1,98 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	body {
+		margin: 0;
+		background: url(bg.png) repeat;
+	}
+	.pop {
+		position: relative;
+		margin: 0 auto;
+		max-width: 760px;
+		min-height: 100px;
+		padding: 30px 40px;
+		background: url(center-vert-left.png) left center repeat-y, url(center-vert-right.png) right center repeat-y, url(center-hor-top.png) top center repeat-x, url(center-hor-bottom.png) bottom center repeat-x;
+	}
+	.content {
+		position: relative;
+		z-index: 100;
+	}
+	.top {
+		height: 50px;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+	}
+	.bottom {
+		height: 50px;
+		overflow: hidden;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 90;
+	}
+	.bottom:before {
+		content: '';
+		display: block;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		left: 0;
+		background: url(corn-bottom-left.png) left bottom no-repeat;
+	}
+	.bottom:after {
+		content: '';
+		display: block;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		right: 0;
+		background: url(corn-bottom-right.png) right bottom no-repeat;
+	}
+	.top {
+		height: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 90;
+	}
+	.top:before {
+		content: '';
+		display: block;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		left: 0;
+		background: url(corn-top-left.png) left top no-repeat;
+	}
+	.top:after {
+		content: '';
+		display: block;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		right: 0;
+		background: url(corn-top-right.png) right top no-repeat;
+	}
+	</style>
+</head>
+<body>
+	<div class="pop">
+		<div class="top"></div>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non, sunt voluptatum accusantium fugiat voluptas provident odio officiis sit dolor repellat ab enim magni </div>
+		<div class="bottom"></div>
+	</div>
+</body>
+</html>

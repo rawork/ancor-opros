@@ -1,0 +1,239 @@
+security_password:
+  path: /admin/password/{key}
+  defaults: { _controller: 'Fuga:Common:Security:password' }
+security_logout:
+  path: /admin/logout
+  defaults: { _controller: 'Fuga:Common:Security:logout' }
+security_forget:
+  path: /admin/forget
+  defaults: { _controller: 'Fuga:Common:Security:forget' }
+
+secureimage:
+  path: /secureimage?{time}
+  defaults: { _controller: 'Fuga:Public:Common:captcha' }
+  requirements:
+    time: \d+\.*\d+
+fileupload:
+  path: /fileupload
+  defaults: { _controller: 'Fuga:Public:Common:fileupload' }
+
+admin_statemenu:
+  path: /admin/statemenu/{state}/{module}
+  defaults: { _controller: 'Fuga:Admin:Menu:state', module: '' }
+admin_modulemenu:
+  path: /admin/modulemenu/{module}
+  defaults: { _controller: 'Fuga:Admin:Menu:module' }
+
+admin_dialog_select:
+  path: /admin/dialog/select
+  defaults: { _controller: 'Fuga:Admin:Dialog:select' }
+admin_dialog_pagination:
+  path: /admin/dialog/pagination/{table}/{field}/{entity}/{page}
+  defaults: { _controller: 'Fuga:Admin:Dialog:pagination', page: 1}
+admin_dialog_tree:
+  path: /admin/dialog/tree
+  defaults: { _controller: 'Fuga:Admin:Dialog:tree' }
+admin_dialog_list:
+  path: /admin/dialog/list
+  defaults: { _controller: 'Fuga:Admin:Dialog:list' }
+admin_dialog_template:
+  path: /admin/dialog/template
+  defaults: { _controller: 'Fuga:Admin:Dialog:template' }
+admin_gallery_delete:
+  path: /admin/gallery/delete
+  defaults: { _controller: 'Fuga:Admin:Gallery:delete'}
+
+admin_service:
+  path: /admin/services
+  defaults: { _controller: 'Fuga:Admin:Service:index' }
+admin_backup_create:
+  path: /admin/backup/create
+  defaults: { _controller: 'Fuga:Admin:Backup:create' }
+admin_backup_get:
+  path: /admin/backup/get/{file}
+  defaults: { _controller: 'Fuga:Admin:Backup:get' }
+admin_backup_delete:
+  path: /admin/backup/delete/{file}
+  defaults: { _controller: 'Fuga:Admin:Backup:delete' }
+admin_restore_file:
+  path: /admin/restore
+  defaults: { _controller: 'Fuga:Admin:Service:restore' }
+
+admin_module_setting:
+  path: /admin/{state}/{module}/setting
+  defaults: { _controller: 'Fuga:Admin:Common:setting' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+
+admin_entity_index:
+  path: /admin/{state}/{module}/{entity}{suffix}
+  defaults: { _controller: 'Fuga:Admin:Crud:index', suffix: '' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+admin_entity_add:
+  path: /admin/{state}/{module}/{entity}/add
+  defaults: { _controller: 'Fuga:Admin:Crud:add' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+admin_entity_edit:
+  path: /admin/{state}/{module}/{entity}/{id}/edit
+  defaults: { _controller: 'Fuga:Admin:Crud:edit' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+    id: \d+
+admin_entity_delete:
+  path: /admin/{state}/{module}/{entity}/{id}/delete
+  defaults: { _controller: 'Fuga:Admin:Crud:delete' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+    id: \d+
+admin_entity_groupedit:
+  path: /admin/{state}/{module}/{entity}/groupedit
+  defaults: { _controller: 'Fuga:Admin:Crud:groupedit' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+admin_entity_groupdelete:
+  path: /admin/{state}/{module}/{entity}/groupdelete
+  defaults: { _controller: 'Fuga:Admin:Crud:groupdelete' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+
+admin_entity_rpp:
+  path: /admin/rpp
+  defaults: { _controller: 'Fuga:Admin:Admin:rpp' }
+
+admin_entity_copy_dialog:
+  path: /admin/copy/{id}
+  defaults: { _controller: 'Fuga:Admin:Copy:dialog' }
+  requirements:
+    id: \d+
+admin_entity_copy:
+  path: /admin/{state}/{module}/{entity}/{id}/copy/{quantity}
+  defaults: { _controller: 'Fuga:Admin:Copy:copy' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+    id: \d+
+    quantity: \d+
+
+admin_entity_table_create:
+  path: /admin/{state}/{module}/{entity}/create
+  defaults: { _controller: 'Fuga:Admin:Table:create' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+admin_entity_table_alter:
+  path: /admin/{state}/{module}/{entity}/alter
+  defaults: { _controller: 'Fuga:Admin:Table:alter' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+    entity: \w+
+
+admin_subscribe_send:
+  path: /admin/send
+  defaults: { _controller: 'Fuga:Public:Subscribe:send' }
+
+admin_index:
+  path: /admin
+  defaults: { _controller: 'Fuga:Admin:Common:state', state: 'content' }
+admin_state_index:
+  path: /admin/{state}
+  defaults: { _controller: 'Fuga:Admin:Common:state', state: 'content' }
+  requirements:
+    state: (content|service|system)
+admin_module_index:
+  path: /admin/{state}/{module}
+  defaults: { _controller: 'Fuga:Admin:Common:module' }
+  requirements:
+    state: (content|service|system)
+    module: \w+
+
+admin_cache_clear:
+  path: /admin/cache/clear
+  defaults: { _controller: 'Fuga:Admin:Cache:clear' }
+
+
+contact_cities_data:
+  path: /ajax/contact/cities
+  defaults: { _controller: 'Fuga:Public:Contact:city'}
+contact_dealers_data:
+  path: /ajax/contact/dealer/
+  defaults: { _controller: 'Fuga:Public:Contact:dealer'}
+event_list:
+  path: /events/{year}/{month}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: 'events', action: 'index', year: 0, month: 0}
+  requirements:
+    year: \d+
+    month: \d+
+event_detail:
+  path: /events/detail/{id}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: 'events', action: 'detail'}
+  requirements:
+    id: \d+
+competition_detail:
+  path: /history/detail/{id}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: 'history', action: 'detail'}
+  requirements:
+    id: \d+
+juri_member:
+  path: /about/juri/member/{id}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: 'about', action: 'member'}
+  requirements:
+    id: \d+
+gallery_picture:
+  path: /pictures/{id}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: 'pictures', action: 'index'}
+  requirements:
+    id: \d+
+
+oauth_verify:
+  path: /pictures/verify/{network}
+  defaults: { _controller: 'Fuga:Public:Gallery:verify'}
+  requirements:
+      network: (vk|fb)
+gallery_logout:
+  path: /pictures/logout
+  defaults: { _controller: 'Fuga:Public:Gallery:logout'}
+gallery_regmail:
+    path: /pictures/regmail
+    defaults: { _controller: 'Fuga:Public:Gallery:regmail'}
+gallery_repair:
+  path: /pictures/repair
+  defaults: { _controller: 'Fuga:Public:Gallery:repair'}
+
+event_email:
+  path: /events/invite
+  defaults: { _controller: 'Fuga:Public:News:invite'}
+
+ajax_picture_list:
+  path: /ajax/picture
+  defaults: { _controller: 'Fuga:Public:Gallery:index'}
+ajax_picture_archive_list:
+  path: /ajax/picture/archive
+  defaults: { _controller: 'Fuga:Public:Gallery:archive'}
+ajax_picture_works_list:
+  path: /ajax/picture/works
+  defaults: { _controller: 'Fuga:Public:Gallery:works'}
+
+public_page:
+  path: /{node}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: '', action: '' }
+public_page_dinamic:
+  path: /{node}/{action}
+  defaults: { _controller: 'Fuga:Public:Common:index', node: '', action: '' }

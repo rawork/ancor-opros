@@ -1,0 +1,67 @@
+<h2>Как проходил конкурс в {{ competition.name }} году</h2>
+
+<ul class="breadcrumb">
+    <li><a href="{{ path('public_page', {node: curnode.name}) }}">{{ curnode.title }}</a></li>
+    <li>{{ competition.name }}</Li>
+</ul>
+
+<div class="history-content">
+    {{ competition.content }}
+</div>
+
+<div class="history">
+    <div class="video-detail clearfix">
+        {% for item in videos %}
+        <div>
+            {{ item.code }}
+            <div class="video-description">{{ item.name }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if gallery|length > 0 %}
+    <div class="gallery-help">Листайте для просмотра фото</div>
+    <div class="gallery gallery-detail">
+        {% set pos = 0 %}
+        {% for picture in gallery %}
+        <div class="photo">
+            <div class="hover"><a class="window" data-position="{{ pos }}" href="{{ picture.photo_value.extra.big.path }}"><img src="{{ picture.photo_value.extra.big.path }}"></a></div>
+            <div class="description">{{ picture.name }}</div>
+        </div>
+        {% set pos = pos + 1 %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if news|length > 0 %}
+    <h2>События этого года</h2>
+    <ul class="events">
+            {% for item in news %}
+                <li class="clearfix">
+                    <div class="picture"><img src="{{ item.photo_value.extra.main.path }}"></div>
+                    <div>
+                        <div class="title"><a href="{{ path('event_detail', {id: item.id}) }}">{{ item.name }}</a></div>
+                        <div class="date">{{ item.date|format_date('d.m.Y') }}</div>
+                        <div class="preview">{{ item.preview }}</div>
+                        <div class="link"><a href="{{ path('event_detail', {id: item.id}) }}">подробно</a></div>
+                    </div>
+                </li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<div class="modal">
+    <div class="modal-dialog">
+        <a href="#" class="modal-close"></a>
+        <div class="modal-pictures">
+            <div class="modal-picture">
+                <img src="/bundles/public/img/picture_big.jpg">
+                <div class="relative">
+                    <a href="#" class="popup-prev"></a>
+                    <a href="#" class="popup-next"></a>
+                </div>
+                <div class="idea"></div>
+            </div>
+        </div>
+    </div>
+</div>

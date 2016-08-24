@@ -1,0 +1,9 @@
+{% if (vote_disabled == false) %}
+<div class="account-control">
+    {% if user %}
+        <a href="/pictures/logout" class="btn-user btn-user-logout"><span class="icon-logout"></span>Выйти</a>
+    {% else %}
+        <span>Войдите, чтобы проголосовать</span> <a href="/pictures/login" class="btn-user btn-user-login"><span class="icon-user"></span>Войти</a>
+    {% endif %}
+</div>
+{% endif %}

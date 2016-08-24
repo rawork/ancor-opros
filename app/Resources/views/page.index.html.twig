@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Конкурс Toyota Автомобиль мечты - {{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="/bundles/public/css/normalize.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/bundles/jcarousel/jcarousel.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/bundles/public/css/app.css?{{ asset }}" media="screen">
+    <link type="text/css" rel="stylesheet" href="/bundles/public/css/home.css?{{ asset }}" media="screen">
+</head>
+<body>
+    <div class="menu-button"><a href="">Меню</a></div>
+    <div class="header-container">
+        <div class="relative">
+            <div class="slider-gradient"></div>
+            <div class="slider-grass"></div>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="logo"><a href="/"><img src="/bundles/public/img/logo.png"></a></div>
+                <div class="logo-small-xs"><a href="/"><img src="/bundles/public/img/logo_small.png"></a></div>
+                <div class="logo-dreamcar"><img src="/bundles/public/img/logo_dreamcar.png"></div>
+                <div class="mainmenu">
+                    <div class="container">
+                        <ul>
+                            <li class="active"><a href="/">Главная</a></li>
+                            {% for menuitem in links %}
+                            <li><a href="{{ menuitem.ref }}">{{ menuitem.title }}</a></li>
+                            {% endfor %}
+                            <li class="logo-small"><a href="/"><img src="/bundles/public/img/logo_small.png"></a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container container0">
+        {{ render('Fuga:Public:About:slider') }}
+    </div>
+    <div class="bg-wrapper">
+        <div class="container content-container">
+            <div class="content">
+
+                {{ maincontent }}
+
+                {#<div class="social">#}
+                    {#{{ render('Fuga:Public:Common:block', {name: 'social'}) }}#}
+                {#</div>#}
+                <div class="society clearfix">
+                    <div class="fb-container">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-page" data-href="https://www.facebook.com/Toyota-%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C-%D0%BC%D0%B5%D1%87%D1%82%D1%8B-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81-%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BA%D0%B0-565681673579860/" data-tabs="timeline" data-width="280" data-height="216" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+                    </div>
+                    <div class="vk-container">
+                        <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+
+                        <!-- VK Widget -->
+                        <div id="vk_groups"></div>
+                        <script type="text/javascript">
+                            VK.Widgets.Group("vk_groups", {mode: 0, width: "280", height: "215", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 105690323);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-content">
+                {{ render('Fuga:Public:Common:block', {name: 'footer'}) }}
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="/bundles/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/bundles/jcarousel/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/bundles/public/js/app.js?{{ asset }}"></script>
+    <script>
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-31211135-5', 'auto');
+
+        ga('send', 'pageview');
+
+    </script>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PC7LZT"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PC7LZT');</script>
+    <!-- End Google Tag Manager -->
+
+</body>
+</html>
