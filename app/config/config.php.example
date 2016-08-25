@@ -3,7 +3,7 @@
 define('PRJ_ENV', 'dev'); // prod, dev
 define('PRJ_REF', '');
 define('PRJ_DIR', $_SERVER['DOCUMENT_ROOT'].PRJ_REF);
-define('PRJ_LOGO', '/bundles/public/img/logo.png');
+define('PRJ_LOGO', PRJ_REF.'/bundles/public/img/logo.png');
 
 define('RES_REF', PRJ_REF.'/files');
 define('RES_DIR', PRJ_DIR.'/files');

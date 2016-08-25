@@ -28,7 +28,7 @@ DirectoryIndex index.php index.html
     RewriteEngine On
 
     <IfModule mod_vhost_alias.c>                                                              
-        RewriteBase /
+        RewriteBase /opros/
     </IfModule> 
 
     RewriteCond %{REQUEST_FILENAME} !-f

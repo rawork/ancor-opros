@@ -169,67 +169,17 @@ admin_cache_clear:
   defaults: { _controller: 'Fuga:Admin:Cache:clear' }
 
 
-contact_cities_data:
-  path: /ajax/contact/cities
-  defaults: { _controller: 'Fuga:Public:Contact:city'}
-contact_dealers_data:
-  path: /ajax/contact/dealer/
-  defaults: { _controller: 'Fuga:Public:Contact:dealer'}
-event_list:
-  path: /events/{year}/{month}
-  defaults: { _controller: 'Fuga:Public:Common:index', node: 'events', action: 'index', year: 0, month: 0}
-  requirements:
-    year: \d+
-    month: \d+
-event_detail:
-  path: /events/detail/{id}
-  defaults: { _controller: 'Fuga:Public:Common:index', node: 'events', action: 'detail'}
-  requirements:
-    id: \d+
-competition_detail:
-  path: /history/detail/{id}
-  defaults: { _controller: 'Fuga:Public:Common:index', node: 'history', action: 'detail'}
-  requirements:
-    id: \d+
-juri_member:
-  path: /about/juri/member/{id}
-  defaults: { _controller: 'Fuga:Public:Common:index', node: 'about', action: 'member'}
-  requirements:
-    id: \d+
-gallery_picture:
-  path: /pictures/{id}
-  defaults: { _controller: 'Fuga:Public:Common:index', node: 'pictures', action: 'index'}
-  requirements:
-    id: \d+
 
-oauth_verify:
-  path: /pictures/verify/{network}
-  defaults: { _controller: 'Fuga:Public:Gallery:verify'}
-  requirements:
-      network: (vk|fb)
-gallery_logout:
-  path: /pictures/logout
-  defaults: { _controller: 'Fuga:Public:Gallery:logout'}
-gallery_regmail:
-    path: /pictures/regmail
-    defaults: { _controller: 'Fuga:Public:Gallery:regmail'}
-gallery_repair:
-  path: /pictures/repair
-  defaults: { _controller: 'Fuga:Public:Gallery:repair'}
 
-event_email:
-  path: /events/invite
-  defaults: { _controller: 'Fuga:Public:News:invite'}
-
-ajax_picture_list:
-  path: /ajax/picture
-  defaults: { _controller: 'Fuga:Public:Gallery:index'}
-ajax_picture_archive_list:
-  path: /ajax/picture/archive
-  defaults: { _controller: 'Fuga:Public:Gallery:archive'}
-ajax_picture_works_list:
-  path: /ajax/picture/works
-  defaults: { _controller: 'Fuga:Public:Gallery:works'}
+ajax_poll_respondent:
+  path: /ajax/poll/respondent
+  defaults: { _controller: 'Fuga:Public:Poll:respondent'}
+ajax_poll_data:
+  path: /ajax/poll/data
+  defaults: { _controller: 'Fuga:Public:Poll:data'}
+ajax_poll_save:
+  path: /ajax/poll/save
+  defaults: { _controller: 'Fuga:Public:Poll:save'}
 
 public_page:
   path: /{node}
