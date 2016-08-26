@@ -27,39 +27,44 @@
             if (currentQuestionData) {
                 $answers.empty();
                 $('#question').html(currentQuestionData.name);
-                console.log(currentQuestionData);
+                //console.log(currentQuestionData);
                 if (currentQuestionData.is_last == 1) {
                     $('#button').hide();
                     $answers.hide();
-                } else if (currentQuestionData.is_open == 1) {
-                    //todo text answer
-                    $answers.html('<div class="open-question-answer"><input type="text"></div>');
-                } else if (currentQuestionData.is_multi == 1) {
-                    //todo select multi answer
-                    var $ul = $('<ul></ul>');
-                    for (var i in currentQuestionData.answers) {
-                        if (currentQuestionData.answers[i].is_open == 1) {
-                            $ul.append($('<li></li>').html('<label><input type="checkbox" name="answer" value="' + currentQuestionData.answers[i].name + '"> ' + currentQuestionData.answers[i].name + '<span class="open-answer-answer"><input type="text"></span></label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
-                        } else {
-                            $ul.append($('<li></li>').html('<label><input type="checkbox" name="answer" value="' + currentQuestionData.answers[i].name + '"> ' + currentQuestionData.answers[i].name + '</label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
-                        }
-                    }
-                    $answers.append($ul.get(0).outerHTML);
                 } else {
-                    //todo select single answer
-                    var $ul = $('<ul></ul>');
-                    for (var i in currentQuestionData.answers) {
-                        if (currentQuestionData.answers[i].is_open == 1){
-                            $ul.append($('<li></li>').html('<label><input type="radio" name="answer" value="'+currentQuestionData.answers[i].name+'"> '+currentQuestionData.answers[i].name+'<span class="open-answer-answer"><input type="text"></span></label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
-                        } else {
-                            $ul.append($('<li></li>').html('<label><input type="radio" name="answer" value="'+currentQuestionData.answers[i].name+'"> '+currentQuestionData.answers[i].name+'</label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
+                    if (currentQuestionData.is_open == 1) {
+                        //todo text answer
+                        $answers.html('<div class="open-question-answer"><input type="text"></div>');
+                        $('.open-question-answer input').focus();
+                    } else if (currentQuestionData.is_multi == 1) {
+                        //todo select multi answer
+                        var $ul = $('<ul></ul>');
+                        for (var i in currentQuestionData.answers) {
+                            if (currentQuestionData.answers[i].is_open == 1) {
+                                $ul.append($('<li></li>').html('<label><input type="checkbox" name="answer" value="' + currentQuestionData.answers[i].name + '"> ' + currentQuestionData.answers[i].name + '<span class="open-answer-answer"><input type="text"></span></label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
+                            } else {
+                                $ul.append($('<li></li>').html('<label><input type="checkbox" name="answer" value="' + currentQuestionData.answers[i].name + '"> ' + currentQuestionData.answers[i].name + '</label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
+                            }
                         }
+                        $answers.append($ul.get(0).outerHTML);
+                    } else {
+                        //todo select single answer
+                        var $ul = $('<ul></ul>');
+                        for (var i in currentQuestionData.answers) {
+                            if (currentQuestionData.answers[i].is_open == 1){
+                                $ul.append($('<li></li>').html('<label><input type="radio" name="answer" value="'+currentQuestionData.answers[i].name+'"> '+currentQuestionData.answers[i].name+'<span class="open-answer-answer"><input type="text"></span></label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
+                            } else {
+                                $ul.append($('<li></li>').html('<label><input type="radio" name="answer" value="'+currentQuestionData.answers[i].name+'"> '+currentQuestionData.answers[i].name+'</label>').attr('question-code', currentQuestionData.answers[i].code).attr('question-branch', currentQuestionData.answers[i].branch).attr('question-open', currentQuestionData.answers[i].is_open));
+                            }
 
+                        }
+                        $answers.append($ul.get(0).outerHTML);
                     }
-                    $answers.append($ul.get(0).outerHTML);
-                }
 
-                $('#button button').html('Ответить').prop('disabled', false);
+                    $('#button button').html('Далее').prop('disabled', false);
+                    $('#button').show();
+                    $('#progress').show();
+                }
             } else {
                 $('#question').html('Ошибка, вопросы не загружены');
             }
@@ -68,7 +73,7 @@
 
         var initQuestion = function() {
 
-            console.log('questions', questions);
+            //console.log('questions', questions);
             currentBranch = result.branch;
             currentQuestionCode = result.question > 0 ? result.question : 1;
             currentQuestionData = questions[currentQuestionCode+currentBranch];
@@ -76,7 +81,7 @@
                 currentQuestionData = questions[currentQuestionCode];
             }
 
-            console.log('question data', currentQuestionCode, currentBranch, currentQuestionData);
+            //console.log('question data', currentQuestionCode, currentBranch, currentQuestionData);
 
             if (currentQuestionData.is_last == 1) {
                 progress = 100;
@@ -96,16 +101,16 @@
                 $.post(prj_ref+'/ajax/poll/data', {respondent: respondent}, function(data){
                     questions = data.questions;
                     result = data.result;
-                    console.log(data.result);
+                    //console.log(data.result);
                     oprosStorage.set('questions', data.questions);
                     oprosStorage.set('result', data.result);
-                    console.log('questions ajax');
+                    //console.log('questions ajax');
                     initQuestion();
                 }, "json");
             } else {
                 questions = oprosStorage.get('questions');
                 result = oprosStorage.get('result');
-                console.log('questions storage');
+                //console.log('questions storage');
                 initQuestion();
             }
         };
@@ -119,17 +124,22 @@
                 $.get(prj_ref+'/ajax/poll/respondent', function(data){
                     respondent = data.respondent;
                     oprosStorage.set('respondent', respondent);
-                    console.log('respondent ajax', respondent);
+                    //console.log('respondent ajax', respondent);
                     getQuestions();
                 }, "json");
             } else {
                 respondent = oprosStorage.get('respondent');
-                console.log('respondent storage');
+                //console.log('respondent storage');
                 getQuestions();
             }
 
-            console.log(respondent);
+            //console.log(respondent);
         };
+
+        $(document).on('input', '.open-answer-answer input', function(e) {
+            $(this).parent().siblings('input').prop('checked', true);
+            $(this).focus();
+        });
 
         $(document).on('click', '#button button', function(e){
             e.preventDefault();
@@ -139,6 +149,7 @@
             if (currentQuestionData.is_open == 1) {
                 value = $('.open-question-answer input').val();
                 if (value == '') {
+                    $('#alert').html('Вы не ответили на вопрос, заполните поле ответа').show();
                     return;
                 }
                 currentAnswerFuture = {code: currentQuestionCode+1, branch: ''};
@@ -146,7 +157,8 @@
                 var $checkbox = $('input[type=checkbox]:checked');
                 if ($checkbox.length > currentQuestionData.max_answer
                     || $checkbox.length == 0) {
-                    console.log($checkbox.length);
+                    //console.log($checkbox.length);
+                    $('#alert').html('Проверьте, пожалуйста, не выделили ли вы больше 5 факторов.').show();
                     return;
                 }
                 value = $checkbox.map(function(){
@@ -163,18 +175,22 @@
             } else {
                 var $radio = $('input[type=radio]:checked');
                 if ($radio.length < 1) {
+                    $('#alert').html('Выберите вариант ответа').show();
                     return;
                 }
                 value = $radio.val();
                 if ($radio.attr('question-open') == 1) {
                     var extraValue = $radio.siblings('span').find('input').val();
                     if (extraValue == '') {
+                        $('#alert').html('Заполните поле ответа').show();
                         return;
                     }
                     value += ": " + extraValue;
                 }
                 currentAnswerFuture = {code: $radio.parents('li').attr('question-code'), branch: $radio.parents('li').attr('question-branch')};
             }
+
+            $('#alert').hide();
 
             var that = $(this);
             that.attr('disabled', 'disabled');
@@ -184,7 +200,7 @@
             result.polldata.push({code: (currentQuestionCode+result.branch), value: value});
             result.branch = currentAnswerFuture.branch != '' ? currentAnswerFuture.branch : result.branch;
             result.question = currentAnswerFuture.code;
-            console.log(result,currentAnswerFuture);
+            //console.log(result,currentAnswerFuture);
 
             $.post(prj_ref+'/ajax/poll/save', {respondent: respondent, data: result}, function(data) {
                     if (data.status) {

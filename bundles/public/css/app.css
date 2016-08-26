@@ -48,6 +48,15 @@ label {
     text-align: center;
 }
 
+#alert, #progress, #button {
+    display: none;
+}
+
+#alert {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+}
 
 #question {
     max-width: 900px;
@@ -66,6 +75,8 @@ label {
 
 #button {
     padding-top: 40px;
+    padding-bottom: 20px;
+
     text-align: center;
 }
 
@@ -73,6 +84,10 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+input {
+    outline: none;
 }
 
 ul li {
@@ -97,6 +112,21 @@ input[type=checkbox] {
 
 .open-question-answer input{
     min-width: 100%;
+}
+
+.progress-bar-success {
+    background-color: #624237;
+}
+
+.btn-success {
+    background-color: #624237;
+    border-color: #624237;
+    outline: none;
+}
+
+.btn-success:focus, .btn-success:active, .btn-success:hover, .btn-success.disabled, .btn-success[disabled], fieldset[disabled] .btn-success, .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover, .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus, .btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus, .btn-success.disabled:active, .btn-success[disabled]:active, fieldset[disabled] .btn-success:active, .btn-success.disabled.active, .btn-success[disabled].active, fieldset[disabled] .btn-success.active {
+    background-color: #754f42;
+    border-color: #754f42;
 }
 
 #fountainG{
