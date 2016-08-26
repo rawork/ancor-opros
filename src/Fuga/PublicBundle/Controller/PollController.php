@@ -20,7 +20,7 @@ class PollController extends Controller
 		$result['polldata'] = $result['polldata'] ? json_decode($result['polldata'], true) : array();
 		$json = array('questions' => array(), 'result' => $result);
 		foreach ($questions as $question) {
-			$question['answers'] = $this->get('container')->getItems('poll_answer', 'publish=1 AND question_id='.$question['id']);
+			$question['answers'] = array_values($this->get('container')->getItems('poll_answer', 'publish=1 AND question_id='.$question['id']));
 
 			$json['questions'][$question['code'].$question['branch']] = $question;
 		}
