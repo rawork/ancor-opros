@@ -54,6 +54,13 @@ class ModuleManager extends ModelManager
 			);
 		}
 
+		if ($module['name'] == 'poll') {
+			$ret[] = array (
+				'ref' => $this->get('routing')->getGenerator()->generate('admin_poll_export'),
+				'name' => 'Экспорт'
+			);
+		}
+
 		return $ret;
 	}
 

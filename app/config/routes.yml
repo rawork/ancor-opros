@@ -149,6 +149,19 @@ admin_subscribe_send:
   path: /admin/send
   defaults: { _controller: 'Fuga:Public:Subscribe:send' }
 
+admin_poll_export:
+  path: /admin/poll/export
+  defaults: { _controller: 'Fuga:Public:Polladmin:index' }
+admin_poll_reporta:
+  path: /admin/poll/reporta
+  defaults: { _controller: 'Fuga:Public:Polladmin:reporta' }
+admin_poll_reportb:
+  path: /admin/poll/reportb
+  defaults: { _controller: 'Fuga:Public:Polladmin:reportb' }
+admin_poll_reportc:
+  path: /admin/poll/reportc
+  defaults: { _controller: 'Fuga:Public:Polladmin:reportc' }
+
 admin_index:
   path: /admin
   defaults: { _controller: 'Fuga:Admin:Common:state', state: 'content' }

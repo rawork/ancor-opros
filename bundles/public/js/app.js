@@ -197,7 +197,7 @@
             that.html('Сохранение ответа...');
 
             // TODO add answer , save result ajax
-            result.polldata.push({code: (currentQuestionCode+result.branch), value: value});
+            result.polldata.push({code: (currentQuestionData.code+currentQuestionData.branch), value: value});
             result.branch = currentAnswerFuture.branch != '' ? currentAnswerFuture.branch : result.branch;
             result.question = currentAnswerFuture.code;
             //console.log(result,currentAnswerFuture);
