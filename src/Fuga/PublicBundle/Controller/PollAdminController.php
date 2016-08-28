@@ -324,6 +324,5 @@ class PolladminController extends AdminController
 		$response->prepare($this->get('request'));
 
 		return $response;
-		
 	}
 } 

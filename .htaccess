@@ -22,6 +22,7 @@ DirectoryIndex index.php index.html
   php_value display_errors                  1
   php_value post_max_size                 50M
   php_value upload_max_filesize           50M
+  php_value mbstring.func_overload          0
 </IfModule>
 
 <IfModule mod_rewrite.c>
