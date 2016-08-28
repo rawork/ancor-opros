@@ -54,8 +54,11 @@ label {
 
 #alert {
     width: 250px;
-    margin: 0 auto;
     text-align: center;
+    position: relative;
+    top: -70px;
+    left: 70%;
+    margin-left: -125px;
 }
 
 #question {
