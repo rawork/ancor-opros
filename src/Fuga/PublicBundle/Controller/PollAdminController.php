@@ -31,12 +31,32 @@ class PolladminController extends AdminController
 			'A', 'B', 'C', 'D', 'E', 'F', 'G',
 			'H', 'I', 'J', 'K', 'L', 'M', 'N',
 			'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-			'V', 'W', 'X', 'Y', 'Z'
+			'V', 'W', 'X', 'Y', 'Z',
+			'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG',
+			'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN',
+			'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU',
+			'AV', 'AW', 'AX', 'AY', 'AZ',
+			'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG',
+			'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN',
+			'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU',
+			'BV', 'BW', 'BX', 'BY', 'BZ',
+			'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG',
+			'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN',
+			'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU',
+			'CV', 'CW', 'CX', 'CY', 'CZ',
+			'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG',
+			'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN',
+			'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU',
+			'DV', 'DW', 'DX', 'DY', 'DZ',
 		);
 		$filename = join('_', array('opros_group_a', date('Y_m_d_H_i_s'))).'.xlsx';
 		$filepath = PRJ_DIR . '/upload/'.$filename;
 
-		$questions = $this->get('container')->getItems('poll_question', 'publish=1 AND is_last=0 AND (branch="A" OR branch="")');
+		$questions = $this->get('container')->getItems('poll_question', 'publish=1 AND is_last=0 AND code>2 AND (branch="A" OR branch="")');
+		$answers = array();
+		foreach($questions as $question){
+			$answers = array_merge($answers, $this->get('container')->getItems('poll_answer', 'question_id='.$question['id']));
+		}
 		$respondents = $this->get('container')->getItems('poll_results', 'branch="A"');
 
 		// Create new PHPExcel object
@@ -61,11 +81,13 @@ class PolladminController extends AdminController
 
 		$objPHPExcel->getActiveSheet()->getDefaultStyle()->applyFromArray($style);
 
-		$firstRow = array('Респондент','Ветвь','Последний вопрос');
+		$firstRow = array('Респондент','','Город','Год');
 
-		foreach($questions as $question){
-			$firstRow[] = join(' ', array($question['code'].$question['branch'], $question['name']));
+		foreach($answers as $answer){
+			$firstRow[] = join(' ', array($answer['question_id_value']['item']['code'].$answer['question_id_value']['item']['branch'], $answer['name']));
 		}
+
+		// phpexcel add first row
 
 		foreach ($firstRow as $key => $titleCell) {
 			$cellCode = $fieldIndexes[$key];
@@ -81,22 +103,24 @@ class PolladminController extends AdminController
 
 		$excelRowNum = 2;
 
-		//todo phpexcel add first row
+
 
 		foreach ($respondents as $respondent) {
-			$answers = json_decode($respondent['polldata'], true);
-			$answers = array_combine(array_column($answers,'code'), $answers);
-			$fields = array($respondent['code'], $respondent['branch'], $respondent['question']);
+			$answersData = json_decode($respondent['polldata'], true);
+			$answersData = array_combine(array_column($answersData,'code'), $answersData);
+			$fields = array($respondent['code'], $respondent['branch'], $respondent['answer1'],$respondent['answer2']);
 
-			foreach($questions as $question){
-				$answer = '-';
-				if(array_key_exists($question['code'].$question['branch'], $answers)) {
-					$answer = $answers[$question['code'].$question['branch']]['value'];
+			foreach($answers as $answer){
+				$answerData = '';
+				if(array_key_exists($answer['question_id_value']['item']['code'].$answer['question_id_value']['item']['branch'], $answersData)) {
+					if (in_array($answer['id'], $answersData[$answer['question_id_value']['item']['code'].$answer['question_id_value']['item']['branch']]['answers'])) {
+						$answerData = 1;
+					}
 				}
-				$fields[] = $answer;
+				$fields[] = $answerData;
 			}
 
-			//todo phpexcel add data row
+			// phpexcel add data row
 			foreach ($fields as $key => $dataCell) {
 				$objPHPExcel->getActiveSheet()->SetCellValue($fieldIndexes[$key].$excelRowNum, $dataCell);
 			}
@@ -131,12 +155,32 @@ class PolladminController extends AdminController
 			'A', 'B', 'C', 'D', 'E', 'F', 'G',
 			'H', 'I', 'J', 'K', 'L', 'M', 'N',
 			'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-			'V', 'W', 'X', 'Y', 'Z'
+			'V', 'W', 'X', 'Y', 'Z',
+			'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG',
+			'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN',
+			'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU',
+			'AV', 'AW', 'AX', 'AY', 'AZ',
+			'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG',
+			'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN',
+			'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU',
+			'BV', 'BW', 'BX', 'BY', 'BZ',
+			'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG',
+			'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN',
+			'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU',
+			'CV', 'CW', 'CX', 'CY', 'CZ',
+			'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG',
+			'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN',
+			'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU',
+			'DV', 'DW', 'DX', 'DY', 'DZ',
 		);
 		$filename = join('_', array('opros_group_b', date('Y_m_d_H_i_s'))).'.xlsx';
 		$filepath = PRJ_DIR . '/upload/'.$filename;
 
-		$questions = $this->get('container')->getItems('poll_question', 'publish=1 AND is_last=0 AND (branch="B" OR branch="C" OR branch="")');
+		$questions = $this->get('container')->getItems('poll_question', 'publish=1 AND is_last=0 AND code>2 AND (branch="B" OR branch="")');
+		$answers = array();
+		foreach($questions as $question){
+			$answers = array_merge($answers, $this->get('container')->getItems('poll_answer', 'question_id='.$question['id']));
+		}
 		$respondents = $this->get('container')->getItems('poll_results', 'branch="B"');
 
 		// Create new PHPExcel object
@@ -147,7 +191,7 @@ class PolladminController extends AdminController
 		$objPHPExcel->getProperties()->setLastModifiedBy("Ancor opros site");
 		$objPHPExcel->getProperties()->setTitle("Office 2007 XLSX Opros data");
 		$objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Opros data");
-		$objPHPExcel->getProperties()->setDescription("Opros data report Group A");
+		$objPHPExcel->getProperties()->setDescription("Opros data report Group B");
 
 
 		// Add some data
@@ -161,11 +205,13 @@ class PolladminController extends AdminController
 
 		$objPHPExcel->getActiveSheet()->getDefaultStyle()->applyFromArray($style);
 
-		$firstRow = array('Респондент','Ветвь','Последний вопрос');
+		$firstRow = array('Респондент','','Город','Год');
 
-		foreach($questions as $question){
-			$firstRow[] = join(' ', array($question['code'].$question['branch'], $question['name']));
+		foreach($answers as $answer){
+			$firstRow[] = join(' ', array($answer['question_id_value']['item']['code'].$answer['question_id_value']['item']['branch'], $answer['name']));
 		}
+
+		// phpexcel add first row
 
 		foreach ($firstRow as $key => $titleCell) {
 			$cellCode = $fieldIndexes[$key];
@@ -181,22 +227,24 @@ class PolladminController extends AdminController
 
 		$excelRowNum = 2;
 
-		//todo phpexcel add first row
+
 
 		foreach ($respondents as $respondent) {
-			$answers = json_decode($respondent['polldata'], true);
-			$answers = array_combine(array_column($answers,'code'), $answers);
-			$fields = array($respondent['code'], $respondent['branch'], $respondent['question']);
+			$answersData = json_decode($respondent['polldata'], true);
+			$answersData = array_combine(array_column($answersData,'code'), $answersData);
+			$fields = array($respondent['code'], $respondent['branch'], $respondent['answer1'],$respondent['answer2']);
 
-			foreach($questions as $question){
-				$answer = '-';
-				if(array_key_exists($question['code'].$question['branch'], $answers)) {
-					$answer = $answers[$question['code'].$question['branch']]['value'];
+			foreach($answers as $answer){
+				$answerData = '';
+				if(array_key_exists($answer['question_id_value']['item']['code'].$answer['question_id_value']['item']['branch'], $answersData)) {
+					if (in_array($answer['id'], $answersData[$answer['question_id_value']['item']['code'].$answer['question_id_value']['item']['branch']]['answers'])) {
+						$answerData = 1;
+					}
 				}
-				$fields[] = $answer;
+				$fields[] = $answerData;
 			}
 
-			//todo phpexcel add data row
+			// phpexcel add data row
 			foreach ($fields as $key => $dataCell) {
 				$objPHPExcel->getActiveSheet()->SetCellValue($fieldIndexes[$key].$excelRowNum, $dataCell);
 			}

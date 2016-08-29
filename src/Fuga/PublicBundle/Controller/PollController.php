@@ -65,7 +65,9 @@ class PollController extends Controller
 			array(
 				'branch' => $data['branch'],
 				'question' => $data['question'],
-				'polldata' => json_encode($data['polldata']),
+				'answer1' => isset($data['answer1']) ? $data['answer1'] : '',
+				'answer2' => isset($data['answer2']) ? $data['answer2'] : '',
+				'polldata' => isset($data['polldata']) ? json_encode($data['polldata']) : '',
 				'is_end' => $isEnd,
 			),
 			array('code' => $respondent)
