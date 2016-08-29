@@ -14,7 +14,7 @@
         var progressStep = 11;
         var prj_ref = '/opros';
 
-        var emptyAll =  true;
+        var emptyAll =  false;
 
         var container = $('#opros');
         var $answers = $('#answers');
