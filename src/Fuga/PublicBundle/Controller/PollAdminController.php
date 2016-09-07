@@ -107,6 +107,9 @@ class PolladminController extends AdminController
 
 		foreach ($respondents as $respondent) {
 			$answersData = json_decode($respondent['polldata'], true);
+			if (is_null($answersData)){
+				continue;
+			}
 			$answersData = array_combine(array_column($answersData,'code'), $answersData);
 			$fields = array($respondent['code'], $respondent['branch'], $respondent['answer1'],$respondent['answer2']);
 
@@ -231,6 +234,9 @@ class PolladminController extends AdminController
 
 		foreach ($respondents as $respondent) {
 			$answersData = json_decode($respondent['polldata'], true);
+			if (is_null($answersData)){
+				continue;
+			}
 			$answersData = array_combine(array_column($answersData,'code'), $answersData);
 			$fields = array($respondent['code'], $respondent['branch'], $respondent['answer1'],$respondent['answer2']);
 
