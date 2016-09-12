@@ -180,7 +180,7 @@
                     return;
                 }
                 value = $radio.val();
-                if ($radio.attr('question-open') == 1) {
+                if ($radio.parents('li').attr('question-open') == 1) {
                     var extraValue = $radio.siblings('span').find('input').val();
                     if (extraValue == '') {
                         $('#alert').html('Заполните поле ответа').fadeIn();
