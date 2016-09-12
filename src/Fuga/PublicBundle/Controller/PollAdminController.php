@@ -280,7 +280,28 @@ class PolladminController extends AdminController
 		return $response;
 	}
 
-	public function reportcAction() {
+	public function reportbotherAction()
+	{
+		$respondents = $this->get('container')->getItems('poll_results', 'branch="B"');
+
+		foreach ($respondents as $respondent){
+			$answersData = json_decode($respondent['polldata'], true);
+			if (is_null($answersData)){
+				continue;
+			}
+			$answersData = array_combine(array_column($answersData,'code'), $answersData);
+
+			if (array_key_exists('9B', $answersData)) {
+				if (in_array('112', $answersData['9B']['answers'])) {
+					$values = explode(',', $answersData['9B']['value']);
+					echo array_pop($values).'<br>'."\n";
+				}
+			}
+		}
+	}
+
+	public function reportcAction()
+	{
 		$fieldIndexes = array(
 			'A', 'B', 'C', 'D', 'E', 'F', 'G',
 			'H', 'I', 'J', 'K', 'L', 'M', 'N',

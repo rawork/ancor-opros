@@ -158,6 +158,9 @@ admin_poll_reporta:
 admin_poll_reportb:
   path: /admin/poll/reportb
   defaults: { _controller: 'Fuga:Public:Polladmin:reportb' }
+admin_poll_reportb:
+  path: /admin/poll/reportb/other
+  defaults: { _controller: 'Fuga:Public:Polladmin:reportbother' }
 admin_poll_reportc:
   path: /admin/poll/reportc
   defaults: { _controller: 'Fuga:Public:Polladmin:reportc' }
