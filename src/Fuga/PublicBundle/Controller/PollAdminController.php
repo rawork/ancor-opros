@@ -179,7 +179,7 @@ class PolladminController extends AdminController
 		$filename = join('_', array('opros_group_b', date('Y_m_d_H_i_s'))).'.xlsx';
 		$filepath = PRJ_DIR . '/upload/'.$filename;
 
-		$questions = $this->get('container')->getItems('poll_question', 'publish=1 AND is_last=0 AND code>2 AND (branch="B" OR branch="" OR question_id=7)');
+		$questions = $this->get('container')->getItems('poll_question', 'publish=1 AND is_last=0 AND code>2 AND (branch="B" OR branch="" OR id=7)');
 		$answers = array();
 		foreach($questions as $question){
 			$answers = array_merge($answers, $this->get('container')->getItems('poll_answer', 'question_id='.$question['id']));
